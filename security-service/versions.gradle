@@ -1,5 +1,6 @@
 ext {
     versions = [
+            jedis : '4.0.1',
             jwt : '0.11.5',
             mapstruct : '1.5.2.Final'
     ]

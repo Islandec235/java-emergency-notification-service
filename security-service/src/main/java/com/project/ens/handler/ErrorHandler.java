@@ -1,7 +1,9 @@
 package com.project.ens.handler;
 
 import com.project.ens.exception.ConflictException;
+import com.project.ens.exception.ForbiddenException;
 import com.project.ens.exception.NotFoundException;
+import com.project.ens.exception.UnauthorizedException;
 import com.project.ens.model.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -16,6 +18,20 @@ import java.util.Arrays;
 @Slf4j
 @RestControllerAdvice
 public class ErrorHandler {
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    public ErrorResponse handleUnauthorized(final UnauthorizedException e) {
+        log.error("Error 401 {}", e.getMessage());
+        return createResponse(e, HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ErrorResponse handleForbidden(final ForbiddenException e) {
+        log.error("Error 403 {}", e.getMessage());
+        return createResponse(e, HttpStatus.FORBIDDEN);
+    }
+
     @ExceptionHandler
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorResponse handleNotFound(final NotFoundException e) {

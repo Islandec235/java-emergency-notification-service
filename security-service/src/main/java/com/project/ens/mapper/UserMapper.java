@@ -1,7 +1,6 @@
 package com.project.ens.mapper;
 
 import com.project.ens.dto.NewUserDto;
-import com.project.ens.dto.UserDto;
 import com.project.ens.model.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -11,6 +10,4 @@ public interface UserMapper {
     @Mapping(target = "password", ignore = true)
     @Mapping(target = "role", ignore = true)
     User toUser(NewUserDto dto);
-
-    UserDto toUserDto(User user);
 }
