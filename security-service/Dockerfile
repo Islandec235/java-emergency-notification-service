@@ -1,8 +1,4 @@
 FROM amazoncorretto:17-alpine-jdk
-WORKDIR /app
-
-COPY /build/libs/*.jar build/
-
-WORKDIR /app/build
+COPY /build/libs/*.jar app.jar
 EXPOSE 9090
-ENTRYPOINT java -jar *.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]

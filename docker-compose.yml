@@ -1,17 +1,16 @@
 version: '3.8'
 
 services:
-  security-service-db:
+  security-db:
     image: postgres:16.1
-    container_name: security-db
     ports:
-      - '5433:5432'
+      - '2345:5432'
     environment:
       - POSTGRES_DB=security-service
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=12345
 
-  security-service-redis:
+  security-redis:
     image: redis:6.0
     container_name: security-cache
     ports:
@@ -25,5 +24,7 @@ services:
     ports:
       - '9090:9090'
     depends_on:
-      - security-service-db
-      - security-service-redis
+      - security-db
+      - security-redis
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://security-db:5432/security-service
