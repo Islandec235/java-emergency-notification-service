@@ -1,19 +1,20 @@
 server:
   port: 9091
-spring:
-  profile:
-    active: test
-  jpa:
-    hibernate.ddl-auto: create
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: false
 
+spring:
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:test
-    username: sa
-    password: ${MEM_H2_PASS:test}
-
+    url: jdbc:h2:mem:ens
+    username: test
+    password: test
+  jpa:
+    hibernate.ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
   h2:
     console:
       enabled=: true
