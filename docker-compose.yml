@@ -27,4 +27,5 @@ services:
       - security-db
       - security-redis
     environment:
+      - SPRING_PROFILE=default
       - SPRING_DATASOURCE_URL=jdbc:postgresql://security-db:5432/security-service

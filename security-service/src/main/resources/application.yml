@@ -3,7 +3,7 @@ security-service:
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DATASOURCE_URL}
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:ens}
     username: ${DB_USER:user}
     password: ${DB_PASSWORD:12345}
   jpa:
