@@ -1,7 +1,8 @@
 security-service:
   url: http://localhost:9090
-
 spring:
+  profiles:
+    active: prod
   http:
     encoding:
       charset: UTF-8
