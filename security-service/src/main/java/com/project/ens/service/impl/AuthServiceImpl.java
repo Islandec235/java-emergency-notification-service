@@ -38,7 +38,7 @@ public class AuthServiceImpl implements AuthService {
                         new NotFoundException("Пользователь с email " + authRequest.getLogin() + " не найден"));
 
         if (!encoder.matches(authRequest.getPassword(), user.getPassword())) {
-            throw new UnauthorizedException("Неверный пароль" + encoder.encode(user.getPassword()) + " " + authRequest.getPassword());
+            throw new UnauthorizedException("Неверный пароль");
         }
 
         final String accessToken = jwtProvider.generateAccessToken(user);
