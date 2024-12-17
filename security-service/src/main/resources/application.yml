@@ -1,0 +1,30 @@
+security-service:
+  url: http://localhost:9090
+spring:
+  profiles:
+    active: prod
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    httpclient:
+      wire: DEBUG
+    org:
+      springframework:
+        orm:
+          jpa: INFO
+          jpa.JpaTransactionManager: DEBUG
+          transaction: INFO
+          transaction.interceptor: TRACE
+
+jwt:
+  secret:
+    access: dd7bd2ec5b9f80e3f4dc94ea2077649b652a44c133caaed97ba2ab74560f3c81
+    refresh: 2c7b8958576ca3fc9888b8c9e2057fd771b95927e492a3124527fd941cf78ed7

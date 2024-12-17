@@ -1,0 +1,6 @@
+ext {
+    versions = [
+            jwt : '0.11.5',
+            mapstruct : '1.5.2.Final'
+    ]
+}

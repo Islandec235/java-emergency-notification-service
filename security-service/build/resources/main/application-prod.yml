@@ -1,0 +1,37 @@
+server.port: 9090
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${DB_USER:user}
+    password: ${DB_PASSWORD:12345}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  data:
+    redis:
+      host: security-cache
+      port: 6379
+
+logging:
+  level:
+    httpclient:
+      wire: DEBUG
+    org:
+      springframework:
+        orm:
+          jpa: INFO
+          jpa.JpaTransactionManager: DEBUG
+          transaction: INFO
+          transaction.interceptor: TRACE
+
+jwt:
+  secret:
+    access: dd7bd2ec5b9f80e3f4dc94ea2077649b652a44c133caaed97ba2ab74560f3c81
+    refresh: 2c7b8958576ca3fc9888b8c9e2057fd771b95927e492a3124527fd941cf78ed7
