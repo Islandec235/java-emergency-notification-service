@@ -3,6 +3,7 @@ gradlew
 gradlew.bat
 gradle/
 build/
+**/build/
 generated/
 generated_tests/
 !gradle/wrapper/gradle-wrapper.jar
