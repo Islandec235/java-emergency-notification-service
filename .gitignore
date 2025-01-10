@@ -2,6 +2,7 @@
 gradlew
 gradlew.bat
 gradle/
+build/
 **/build/
 generated/
 generated_tests/
