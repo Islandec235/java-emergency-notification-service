@@ -1,1 +1,1 @@
-# java-emergency-notification-service
+# java-emergency-notification-system
